@@ -375,3 +375,13 @@ if ('serviceWorker' in navigator) {
         // navigator.serviceWorker.register('/sw.js');
     });
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const addBtn = document.getElementById("addTaskBtn");
+    const container = document.getElementById("taskInputContainer");
+
+    if (addBtn && container) {
+        addBtn.addEventListener("click", function () {
+            container.style.display = "block";
+        });
+    }
+});
