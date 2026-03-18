@@ -1,0 +1,102 @@
+<!-- Theme Settings Panel Component -->
+<!-- Include this in your main HTML file -->
+
+<!-- Settings Button (Floating) -->
+<button id="themeSettingsBtn" class="theme-settings-btn" title="Theme Settings" aria-label="Open theme settings">
+  🎨
+</button>
+
+<!-- Settings Panel -->
+<div id="themeSettingsPanel" class="theme-settings-panel">
+  <!-- Header -->
+  <div class="settings-panel-header">
+    <h3>⚙️ Theme Settings</h3>
+    <button id="closeSettingsPanel" class="close-settings-btn" aria-label="Close settings">×</button>
+  </div>
+
+  <!-- Content -->
+  <div class="settings-panel-content">
+    
+    <!-- Dark Mode Toggle -->
+    <div class="settings-section">
+      <div class="setting-label">
+        <span>🌙 Dark Mode</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="themeToggle" aria-label="Toggle dark mode">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="theme-preview">
+        <span id="modeIndicator">Light Mode Active</span>
+      </div>
+    </div>
+
+    <!-- Primary Color Picker -->
+    <div class="settings-section">
+      <label class="setting-label" style="display: block; margin-bottom: 12px;">
+        🎨 Primary Color
+      </label>
+      <div class="color-input-wrapper">
+        <input type="color" id="primaryColorPicker" value="#667eea" aria-label="Pick primary color">
+        <span class="color-hex-value" id="primaryColorValue">#667eea</span>
+      </div>
+      <div class="theme-preview" style="margin-top: 8px;">
+        <div class="preview-sample">
+          <button class="preview-button">Preview Button</button>
+          <span>Sample text in primary color</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Background Color Picker -->
+    <div class="settings-section">
+      <label class="setting-label" style="display: block; margin-bottom: 12px;">
+        🏙️ Background Color
+      </label>
+      <div class="color-input-wrapper">
+        <input type="color" id="bgColorPicker" value="#ffffff" aria-label="Pick background color">
+        <span class="color-hex-value" id="bgColorValue">#ffffff</span>
+      </div>
+    </div>
+
+    <!-- Theme Presets -->
+    <div class="settings-section">
+      <label class="setting-label" style="display: block; margin-bottom: 12px;">
+        🎭 Quick Presets
+      </label>
+      <div class="theme-presets">
+        <button class="theme-preset-btn" data-preset="Ocean" title="Ocean theme">Ocean</button>
+        <button class="theme-preset-btn" data-preset="Forest" title="Forest theme">Forest</button>
+        <button class="theme-preset-btn" data-preset="Sunset" title="Sunset theme">Sunset</button>
+        <button class="theme-preset-btn" data-preset="Purple" title="Purple theme">Purple</button>
+        <button class="theme-preset-btn" data-preset="Coral" title="Coral theme">Coral</button>
+        <button class="theme-preset-btn" data-preset="Indigo" title="Indigo theme">Indigo</button>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="settings-actions">
+      <button id="resetThemeBtn" class="reset-theme-btn">↻ Reset to Default</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Update color display when changed
+  document.getElementById('primaryColorPicker')?.addEventListener('input', (e) => {
+    document.getElementById('primaryColorValue').textContent = e.target.value.toUpperCase();
+  });
+
+  document.getElementById('bgColorPicker')?.addEventListener('input', (e) => {
+    document.getElementById('bgColorValue').textContent = e.target.value.toUpperCase();
+  });
+
+  // Update mode indicator
+  document.getElementById('themeToggle')?.addEventListener('change', (e) => {
+    const indicator = document.getElementById('modeIndicator');
+    if (indicator) {
+      indicator.textContent = e.target.checked ? '🌙 Dark Mode Active' : '☀️ Light Mode Active';
+    }
+  });
+</script>
